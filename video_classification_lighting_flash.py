@@ -23,18 +23,18 @@ datamodule = VideoClassificationData.from_folders(
 
 
 # 2. Build the task
-model = VideoClassifier(backbone="x3d_xs", num_classes=datamodule.num_classes, pretrained=False)
+#model = VideoClassifier(backbone="x3d_xs", num_classes=datamodule.num_classes, pretrained=False)
 
 # 3. Create the trainer and finetune the model
-trainer = flash.Trainer(max_epochs=3, gpus=torch.cuda.device_count())
-trainer.finetune(model, datamodule=datamodule, strategy="freeze")
+#trainer = flash.Trainer(max_epochs=3, gpus=torch.cuda.device_count())
+#trainer.finetune(model, datamodule=datamodule, strategy="freeze")
 
 # 4. Make a prediction
 #predictions = model.predict(os.path.join(os.getcwd(), "path"))
 #print(predictions)
 
 # 5. Save the states (parameters/weights) but NOT the model!
-trainer.save_checkpoint("video_classification.pt")
+#trainer.save_checkpoint("video_classification.pt")
 
 
 # 6. load model (opción 1 que no funcionó pero aprendí stuff) usando las funciones de pytorch
