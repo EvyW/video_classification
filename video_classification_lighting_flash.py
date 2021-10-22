@@ -5,6 +5,10 @@ import torch
 import flash
 from flash.core.data.utils import download_data
 from flash.video import VideoClassificationData, VideoClassifier
+import torch.multiprocessing
+
+# to fix the problem of "too many open files"...
+torch.multiprocessing.set_sharing_strategy('file_system')
 
 # 1. Create the DataModule
 # Find more datasets at https://pytorchvideo.readthedocs.io/en/latest/data.html
