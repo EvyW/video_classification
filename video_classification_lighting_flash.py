@@ -30,7 +30,7 @@ datamodule = VideoClassificationData.from_folders(
 model = VideoClassifier(backbone="x3d_xs", num_classes=datamodule.num_classes, pretrained=False)
 
 # 3. Create the trainer and finetune the model
-trainer = flash.Trainer(max_epochs=10, gpus=torch.cuda.device_count())
+trainer = flash.Trainer(max_epochs=20, gpus=torch.cuda.device_count())
 trainer.finetune(model, datamodule=datamodule, strategy="freeze")
 
 # 4. Make a prediction
@@ -38,7 +38,7 @@ trainer.finetune(model, datamodule=datamodule, strategy="freeze")
 #print(predictions)
 
 # 5. Save the states (parameters/weights) but NOT the model!
-trainer.save_checkpoint("model_new_5epochs.pt")
+trainer.save_checkpoint("model_new_20epochs.pt")
 
 
 # 6. load model (opción 1 que no funcionó pero aprendí stuff) usando las funciones de pytorch
