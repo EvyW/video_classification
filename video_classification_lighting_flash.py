@@ -38,7 +38,7 @@ trainer.finetune(model, datamodule=datamodule, strategy="freeze")
 #print(predictions)
 
 # 5. Save the states (parameters/weights) but NOT the model!
-trainer.save_checkpoint("model_30epochs.pt")
+trainer.save_checkpoint("model_new_5epochs.pt")
 
 
 # 6. load model (opción 1 que no funcionó pero aprendí stuff) usando las funciones de pytorch
